@@ -9,10 +9,7 @@ def solve(inp):
     pos = 50
     res = 0
     for rotation in inp:
-        if rotation[0] == "R":
-            pos += int(rotation[1:])
-        else:
-            pos -= int(rotation[1:])
+        pos += int(rotation[1:]) if rotation[0] == "R" else -int(rotation[1:])
         pos %= 100
         if pos == 0:
             res += 1
