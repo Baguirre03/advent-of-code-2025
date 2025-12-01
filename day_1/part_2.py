@@ -1,5 +1,3 @@
-import math
-
 input = []
 with open("input.txt", "r") as file:
     lines = file.readlines()

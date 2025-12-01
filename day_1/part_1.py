@@ -13,7 +13,7 @@ def solve(inp):
             pos += int(rotation[1:])
         else:
             pos -= int(rotation[1:])
-        pos = pos % 100
+        pos %= 100
         if pos == 0:
             res += 1
     return res
