@@ -10,18 +10,11 @@ def solve(inp):
     res = 0
     for rotation in inp:
         n = int(rotation[1:])
-        if rotation[0] == "R":
-            for _ in range(n):
-                pos += 1
-                pos = pos % 100
-                if pos == 0:
-                    res += 1
-        else:
-            for _ in range(n):
-                pos -= 1
-                pos = pos % 100
-                if pos == 0:
-                    res += 1
+        for _ in range(n):
+            pos += 1 if rotation[0] == "R" else -1
+            pos %= 100
+            if pos == 0:
+                res += 1
     return res
 
 
