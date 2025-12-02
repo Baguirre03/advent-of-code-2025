@@ -6,30 +6,6 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 
 
-HEADER = """input = []
-with open("input.txt", "r") as file:
-    lines = file.readlines()
-    for line in lines:
-        input.append(line.replace("\n", ""))
-
-example = []
-with open("example.txt", "r") as file:
-    lines = file.readlines()
-    for line in lines:
-        example.append(line.replace("\n", ""))
-
-
-
-def solve(inp):
-    pass
-
-
-if __name__ == "__main__":
-    print("Example:", solve(example))
-    print("Input:", solve(input))
-"""
-
-
 def create_day(day_str: str) -> None:
     day_dir = ROOT / f"day_{day_str}"
     day_dir.mkdir(exist_ok=True)
@@ -46,10 +22,10 @@ def create_day(day_str: str) -> None:
         input_path.write_text("", encoding="utf-8")
 
     if not part_1_path.exists():
-        part_1_path.write_text(HEADER, encoding="utf-8")
+        part_1_path.write_text("", encoding="utf-8")
 
     if not part_2_path.exists():
-        part_2_path.write_text(HEADER, encoding="utf-8")
+        part_2_path.write_text("", encoding="utf-8")
 
 
 def main() -> None:
