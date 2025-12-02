@@ -1,6 +1,3 @@
-import time
-
-
 def solve(inp):
     res = 0
     with open(inp, "r") as file:
