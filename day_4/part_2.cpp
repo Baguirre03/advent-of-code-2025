@@ -41,8 +41,6 @@ int check_directions(int x, int y, vector<vector<char>> grid) {
 }
 
 int main() {
-    time_t currentTime = time(nullptr); // Get current time
-
     vector<vector<char>> grid = create_rows();
     int res = 0;
     while (true) {
@@ -60,8 +58,6 @@ int main() {
         res += remove;
         if (remove == 0) break;
     }
-    char* timeString = ctime(&currentTime);
-    std::cout << "Current time: " << timeString << std::endl;
 
     cout << res;
     return 1;
