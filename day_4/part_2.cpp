@@ -15,7 +15,7 @@ vector<vector<char>> create_rows(){
         }
         rows.push_back(arr);
     }
-    
+
     return rows;
 }
 
@@ -40,39 +40,28 @@ int check_directions(int x, int y, vector<vector<char>> grid) {
     return 1;
 }
 
-vector<vector<int>> find_removable(vector<vector<char>> grid) {
-    vector<vector<int>> remove;
-    for (int i = 0; i < grid.size(); i++) {
-        for (int j = 0; j < grid[0].size(); j++) {
-            if (grid[i][j] == '@') {
-                int removable = check_directions(i,j,grid);
-                if (removable) {
-                    remove.push_back({i,j});
+int main() {
+    time_t currentTime = time(nullptr); // Get current time
+
+    vector<vector<char>> grid = create_rows();
+    int res = 0;
+    while (true) {
+        int remove = 0;
+        for (int i = 0; i < grid.size(); i++) {
+            for (int j = 0; j < grid[0].size(); j++) {
+                if (grid[i][j] == '@') {
+                    if (check_directions(i, j, grid)) {
+                        remove += 1;
+                        grid[i][j] = '.';
+                    }
                 }
             }
         }
+        res += remove;
+        if (remove == 0) break;
     }
-    return remove;
-}
-
-vector<vector<char>> remove_from_grid(vector<vector<char>> grid, vector<vector<int>> remove) {
-    for (int i = 0; i < remove.size(); i++) {
-        int x = remove[i][0];
-        int y = remove[i][1];
-        grid[x][y] = '.';
-    }
-    return grid;
-}
-
-int main() {
-    vector<vector<char>> grid = create_rows();
-    int res = 0;
-    vector<vector<int>> remove = find_removable(grid);
-    while (remove.size() != 0) {
-        grid = remove_from_grid(grid, remove);
-        res += remove.size();
-        remove = find_removable(grid);
-    }
+    char* timeString = ctime(&currentTime);
+    std::cout << "Current time: " << timeString << std::endl;
 
     cout << res;
     return 1;
