@@ -46,11 +46,9 @@ int main() {
         int remove = 0;
         for (int i = 0; i < grid.size(); i++) {
             for (int j = 0; j < grid[0].size(); j++) {
-                if (grid[i][j] == '@') {
-                    if (check_directions(i, j, grid)) {
+                if (grid[i][j] == '@' && check_directions(i, j, grid)) {
                         remove += 1;
                         grid[i][j] = '.';
-                    }
                 }
             }
         }
