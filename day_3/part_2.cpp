@@ -39,8 +39,8 @@ int main() {
             last_indx = add[1];
             search = row.size() - last_indx - 12 + arr.size();
         }
-        std::string s;
-        for (int d : arr) s += std::to_string(d);
+        string s;
+        for (int d : arr) s += to_string(d);
         long long number = stoll(s); 
         res += number;
     }
