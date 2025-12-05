@@ -18,9 +18,10 @@ const solve = (inp) => {
   ranges = ranges
     .map((x) => x.split("-").map((x) => +x))
     .sort((x, y) => x[0] - y[0]);
-  ids = ids.map((x) => +x);
 
-  return ids.reduce((acum, cur) => (check(cur, ranges) ? 1 + acum : acum), 0);
+  return ids
+    .map((x) => +x)
+    .reduce((acum, cur) => (check(cur, ranges) ? 1 + acum : acum), 0);
 };
 
 console.log(solve(filecontent));
