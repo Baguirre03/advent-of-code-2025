@@ -19,7 +19,6 @@ const solve = (inp) => {
     .map((x) => x.split("-").map((x) => +x))
     .sort((x, y) => x[0] - y[0]);
   ids = ids.map((x) => +x);
-  ids.pop();
 
   return ids.reduce((acum, cur) => (check(cur, ranges) ? 1 + acum : acum), 0);
 };
