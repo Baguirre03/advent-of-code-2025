@@ -11,15 +11,13 @@ def solve(inp):
                 d[i].append(n)
     res = []
     for i in range(len(d.keys())):
-        acc = 1
         op = d[i][-1]
+        acc = 1 if op == "*" else 0
         for j in range(len(d[i]) - 1):
             if op == "+":
                 acc += int(d[i][j])
             else:
                 acc *= int(d[i][j])
-        if op == "+":
-            acc -= 1
         res.append(acc)
 
     return sum(res)
