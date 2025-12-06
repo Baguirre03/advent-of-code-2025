@@ -3,7 +3,7 @@ from collections import defaultdict
 
 def solve(inp):
     columns = defaultdict(list)
-    longest = {}
+    longest = defaultdict(lambda: -1)
     cols = defaultdict(list)
     ops = []
 
@@ -11,13 +11,19 @@ def solve(inp):
         lines = file.readlines()
         for line in lines:
             tmp_line = line.strip().split()
-            if tmp_line[0] == "+" or tmp_line[0] == "*":
-                continue
-            else:
+            num_with_spaces = []
+            for char in line:
+                num_with_spaces.append(char)
+
+            # push each number into columns dict to get largest in column
+            if tmp_line[0].isdigit():
                 for i, n in enumerate(tmp_line):
                     columns[i].append(len(n))
-        for i, col in columns.items():
-            longest[i] = max(col)
+                    longest[i] = max(longest[i], len(n))
+            else:
+                ops = tmp_line
+        # for i, col in columns.items():
+        #     longest[i] = max(col)
 
         for line in lines:
             num = []
@@ -58,3 +64,4 @@ def solve(inp):
 
 # print(solve("example.txt"))
 print(solve("input.txt"))
+print(solve("input.txt") == 10194584711842)
