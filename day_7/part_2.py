@@ -31,12 +31,7 @@ def solve(inp):
         memo[(r, c, dir)] = res
         return memo[(r, c, dir)]
 
-    res = find_path(
-        0,
-        s,
-        "",
-    )
-    return res
+    return find_path(0, s, "")
 
 
 # print(solve("example.txt"))
