@@ -18,8 +18,7 @@ def solve(inp):
         if (r, c, dir) in memo:
             return memo[(r, c, dir)]
         if r == len(grid):
-            res += 1
-            return res
+            return res + 1
         if grid[r][c] == "^":
             res += find_path(r + 1, c - 1, "l")
             res += find_path(r + 1, c + 1, "r")
@@ -35,7 +34,7 @@ def solve(inp):
     res = find_path(
         0,
         s,
-        "l",
+        "",
     )
     return res
 
