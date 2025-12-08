@@ -54,6 +54,7 @@ def solve(inp):
         rank[k] = 0
         for j in range(i + 1, len(rows)):
             heapq.heappush(pq, [get_distance(rows[i], rows[j]), i, j])
+
     l1, l2 = -1, -1
     while len(set(par.values())) != 1:
         _, i1, i2 = heapq.heappop(pq)

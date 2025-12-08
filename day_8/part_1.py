@@ -64,8 +64,7 @@ def solve(inp):
 
     dict = {}
     for i in range(len(rows)):
-        k = get_key(rows[i])
-        dict[find(k)] = []
+        dict[find(get_key(rows[i]))] = []
 
     for k, v in par.items():
         dict[v].append(k)
